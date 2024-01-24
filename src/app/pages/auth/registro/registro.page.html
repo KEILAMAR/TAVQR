@@ -1,13 +1,22 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>registro</ion-title>
+  <ion-toolbar class="degradado">
+    <ion-title>FORMULARIO REGISTRO</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">registro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="centrado">
+  <ion-img src="assets/icon/registro.svg.svg"></ion-img>
+
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <label position="floating">Usuario</label>
+      <ion-input [(ngModel)]="usuario" type="usuario"></ion-input>
+    </ion-item>
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <label position="floating">Contraseña</label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+    <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end" 
+    (click)="registrar()">Registrarse</ion-button>
+  </div>
 </ion-content>

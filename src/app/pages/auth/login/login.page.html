@@ -10,39 +10,33 @@
     <img alt="Silhouette of mountains" src="https://www.duoc.cl/wp-content/uploads/2021/03/logo-duocuc.png" />
 
 
-    <ion-card-content [formGroup]="loginForm">
-      <ion-item>
-        <ion-input [(ngModel)]="emailValue" formControlName="email" label-placement="floating" type="email"
-          errorText="Correo inválido" fill="solid" label="Correo Institucional" labelPlacement="floating"
-          placeholder="Ej: Alumno@duocuc.cl"></ion-input>
+    <ion-item class="fondo input ion-margin-top ion-margin-start ion-margin-end" lines="none">
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input [(ngModel)]="usuario" type="text"></ion-input>
+    </ion-item>
 
-        <ion-text position="stacked" color="danger" *ngIf="loginForm.get('email')?.hasError('required')">
-          Este campo es requerido.</ion-text>
-        <ion-text position="stacked" color="danger" *ngIf="loginForm.get('email')?.hasError('email')">
-          Ingrese un email válido.</ion-text>
-      </ion-item>
+    <ion-item class="fondo input ion-margin-top ion-margin-start ion-margin-end" lines="none">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
 
+    <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end"
+      (click)="iniciarSesion()">
+      Iniciar Sesión
+    </ion-button>
 
+    <ion-alert [isOpen]="isAlertOpen" header="Aviso" message="Credenciales incorrectas. Por favor, inténtalo de nuevo."
+      buttons="OK" (didDismiss)="setOpen(false)"></ion-alert>
 
-
-      <ion-item>
-        <ion-input [(ngModel)]="passwordValue" formControlName="password" type="password" label="Contraseña"
-          labelPlacement="floating" fill="solid" placeholder="Ej: 12345678">
-
-        </ion-input>
-        <ion-text position="stacked" color="danger" *ngIf="loginForm.get('password')?.hasError('required')">
-          la contraseña es requerida
-        </ion-text>
-        <ion-text hidden position="stacked" color="danger" *ngIf="loginForm.get('password')?.hasError('minlength')">
-          la Contraseña debe tener minimo 6 caracteres
-        </ion-text>
-      </ion-item>
-
-
-      <ion-button class="degradado" shape="round" size="full" (click)="login()">Ingresar</ion-button>
-      <ion-button class="degradado" shape="round" size="full" (click)="register()">Registrarse</ion-button>
-      <ion-button fill="clear" size="full" (click)="xd()">Recuperar Contraseña</ion-button>
-
-    </ion-card-content>
+    <div>
+      <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end"
+        (click)="recuperarClave()">
+        Cambiar contraseña
+      </ion-button>
+      <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end"
+        (click)="registrarse()">
+        Registrarse
+      </ion-button>
+    </div>
   </ion-card>
 </ion-content>

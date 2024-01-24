@@ -1,53 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthfirebaseService } from 'src/app/services/Firebase/authfirebase.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
 
-  loginForm: FormGroup;
+  usuario: string = '';
+  password: string = '';
 
-  emailValue!: string;
-  passwordValue!: string;
+  isAlertOpen = false;
 
-  constructor(private formBuilder: FormBuilder,private authFire: AuthfirebaseService, private router: Router) { 
-    
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-    })
-  }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  iniciarSesion() {
+    const storedUsuario = localStorage.getItem('usuario');
+    const storedPassword = localStorage.getItem('password');
 
-  async login() {
-    try {
-      await this.authFire.login(this.emailValue, this.passwordValue);
-    } catch (error) {
-
+    if (this.usuario === storedUsuario && this.password === storedPassword) {
+      // Credenciales válidas, redirigir a la página principal y pasar el nombre de usuario como estado
+      this.router.navigate(['principal'], { state: { user: storedUsuario } });
+    } else {
+      // Credenciales incorrectas, mostrar la alerta
+      this.isAlertOpen = true;
     }
   }
 
-  async register() {
-    try {
-      await this.authFire.register(this.emailValue, this.passwordValue);
-    } catch (error) {
-
-    }
+  recuperarClave() {
+    this.router.navigate(['resset']);
   }
 
-  async xd(){
-    this.router.navigate(['resetpassword'])
+  registrarse() {
+    this.router.navigate(['registro']);
   }
 
-  async profe(){
-    this.router.navigate(['homeprofesor'])
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
   }
-
 }
