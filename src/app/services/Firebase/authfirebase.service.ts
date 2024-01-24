@@ -1,3 +1,4 @@
+import { MessageBundle } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { LoadingController, NavController } from '@ionic/angular';
@@ -25,7 +26,7 @@ export class AuthfirebaseService {
       setTimeout(() => {
   
         this.loading.dismiss();
-        this.navCtrl.navigateRoot('homealumno');
+        this.navCtrl.navigateRoot('homea');
   
       }, 800);
     } catch (error) {
@@ -42,6 +43,7 @@ export class AuthfirebaseService {
   
         this.loading.dismiss();
         this.navCtrl.navigateRoot('login');
+        
   
       }, 800);
     }
