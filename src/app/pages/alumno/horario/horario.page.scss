@@ -1,0 +1,50 @@
+.centrado{
+    display: grid;
+    place-content: center;
+}
+
+img{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 1rem;
+}
+
+.degradado {
+    --background: linear-gradient(15deg, rgb(26, 23, 214) 0%, rgb(218, 185, 38) 100%);
+    --color: #0b0b0b;
+}
+
+.centro-horizontal {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 1rem;
+}
+
+.degradado {
+    --background: linear-gradient(15deg, rgb(26, 23, 214) 0%, rgb(218, 185, 38) 100%);
+    --color: #0b0b0b;
+}
+
+.item-programacion-bdd,
+.item-programacion-movil,
+.item-arquitectura,
+.item-ingles {
+    display: flex;
+    align-items: center;
+}
+
+.programacion-bdd,
+.programacion-movil,
+.arquitectura,
+.ingles {
+    flex: 1;
+    background-color: var(--ion-item-background);
+    text-align: center;
+}

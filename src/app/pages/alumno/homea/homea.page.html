@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Inicio Alumno</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="button-container">
+    <ion-button expand="full" color="light" (click)="clases()">
+      <h1>
+        Clases
+      </h1>
+
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="../../../../assets/icon/clases.png" />
+      </ion-thumbnail>
+    </ion-button>
+
+    <br />
+
+    <ion-button expand="full" color="light" (click)="horario()">
+
+      <h1>Horario</h1>
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="../../../../assets/icon/horario.png" />
+      </ion-thumbnail>
+    </ion-button>
+
+  </div>
+
+
+
+  <ion-tabs>
+    <ion-icon name="add-circle-outline" class="icon-button inner-center-btn"></ion-icon>
+
+    <ion-tab-bar slot="bottom" class="bottom-tab-bar">
+
+      <ion-tab-button tab="marketplace" (click)="home()">
+        <ion-icon mode="md" name="home"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="calendar" class="inner-left-btn" (click)="horario()" >
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Horario</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button class="button-center" (click)="qr()">
+        <div></div>
+      </ion-tab-button>
+
+      <ion-tab-button tab="user" class="inner-right-btn" (click)="perfil()"> 
+        <ion-icon name="person-sharp"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="search">
+        <ion-icon name="search-circle"></ion-icon>
+        <ion-label>Buscar</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

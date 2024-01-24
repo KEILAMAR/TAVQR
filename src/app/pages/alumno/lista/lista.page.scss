@@ -1,0 +1,20 @@
+ion-toolbar {
+    --background: #10486d59;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin-left: auto;
+  }
+
+  ion-content {
+    --background: #06566471;
+  }  
+
+  ion-title {
+    margin-top: 5%;
+    font-size: 17px;
+    margin-left: -1%;
+  }
+
+ 

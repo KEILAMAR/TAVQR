@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" defaultHref="/clasesalumno"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Programacion de Aplicaciones Moviles</ion-title>
+    <div class="ion-padding">PGY4121</div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-list-header>Asistencia</ion-list-header>
+    <ion-item-group *ngFor="let asistencia of asistencias">
+      <ion-item-divider>
+        <ion-label color="primary">{{asistencia.group}}</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let item of asistencia.items">
+        <ion-label>{{item}}</ion-label>
+      </ion-item>
+    </ion-item-group>  
+  </ion-list>
+</ion-content>
