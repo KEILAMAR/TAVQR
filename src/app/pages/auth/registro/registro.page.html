@@ -1,22 +1,32 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="degradado">
-    <ion-title>FORMULARIO REGISTRO</ion-title>
+  <ion-toolbar color="warning">
+    <ion-title>REGISTRARSE</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="centrado">
-  <ion-img src="assets/icon/registro.svg.svg"></ion-img>
+<ion-content [fullscreen]="true" class="page-background ">
+    <ion-card>
+      <ion-img src="assets/icon/duocuc.png">
+      </ion-img>
+    </ion-card>
 
-    <ion-item class="fondo input ion-margin-top" lines="none">
-      <label position="floating">Usuario</label>
-      <ion-input [(ngModel)]="usuario" type="usuario"></ion-input>
-    </ion-item>
-    <ion-item class="fondo input ion-margin-top" lines="none">
-      <label position="floating">Contraseña</label>
-      <ion-input [(ngModel)]="password" type="password"></ion-input>
-    </ion-item>
-    <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end" 
-    (click)="registrar()">Registrarse</ion-button>
-  </div>
+    <ion-card>
+      <div class="centrado">
+        <ion-item class="fondo input ion-margin-top ion-margin-start ion-margin-end" lines="none">
+          <label position="floating">Ingresar correo</label>
+          <ion-input [(ngModel)]="usuario" type="usuario"></ion-input>
+        </ion-item>
+         
+        <ion-item class="fondo input ion-margin-top ion-margin-start ion-margin-end" lines="none">
+          <label position="floating">Ingresar contraseña</label>
+          <ion-input [(ngModel)]="password" type="password"></ion-input>
+        </ion-item>
+      </div>
+      <div>
+        <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end" 
+        (click)="registrar()">
+        Registrarse
+        </ion-button>
+      </div>
+    </ion-card>  
 </ion-content>
