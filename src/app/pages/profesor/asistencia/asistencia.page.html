@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    <ion-label>{{item.name}}</ion-label>
+    <ion-checkbox slot="end" name="thing1-{{item.id}}" value="valuable" id="thing1-{{item.id}}"></ion-checkbox>
+    <ion-checkbox color="danger" slot="end" name="thing2-{{item.id}}" value="valuable" id="thing2-{{item.id}}"></ion-checkbox>
+  </ion-item>
+</ion-list>
+
+<ion-button (click)="submit()">Guardar Asistencia</ion-button>
+

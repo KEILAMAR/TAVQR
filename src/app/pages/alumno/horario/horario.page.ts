@@ -17,4 +17,8 @@ export class HorarioPage implements OnInit {
     this.router.navigate(['/leerqr']);
   }
 
+  irAHomeA() {
+    this.router.navigate(['/homea']);
+  }
+
 }

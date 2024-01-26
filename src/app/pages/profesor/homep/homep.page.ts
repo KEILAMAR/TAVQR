@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-homep',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
 
   ngOnInit() {
   }
+
+  async perfil(){
+    this.router.navigate(['perfilp'])
+  }
+
+  async clases(){
+    this.router.navigate(['clases'])
+  }
+
+  async horario(){
+    this.router.navigate(['horario'])
+  }
+
+  async qr(){
+    this.router.navigate(['mostrarqr'])
+  }
+
+  async home(){
+    this.router.navigate(['homep'])
+  }
+
 
 }
