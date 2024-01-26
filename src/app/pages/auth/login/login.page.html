@@ -1,42 +1,46 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="warning">
-    <ion-title class="centrado">Iniciar Sesion</ion-title>
+  <ion-toolbar class="degradado">
+    <ion-title class="centrado">BIENVENIDO</ion-title>
   </ion-toolbar>
+  <script src="../login/JS/main.js" type="module"></script>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<body>
+  <ion-content [fullscreen]="true" class="degradado">
 
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://www.duoc.cl/wp-content/uploads/2021/03/logo-duocuc.png" />
+    <ion-card class="degradado">
+      <img alt="Silhouette of mountains" src="https://www.duoc.cl/wp-content/uploads/2021/03/logo-duocuc.png" />
 
 
-    <ion-item class="fondo input ion-margin-top ion-margin-start ion-margin-end" lines="none">
-      <ion-label position="floating">Usuario</ion-label>
-      <ion-input [(ngModel)]="usuario" type="text"></ion-input>
-    </ion-item>
+      <ion-item  class="fondo input ion-margin-top ion-margin-start ion-margin-end" lines="none">
+        <ion-label class="custom-label" position="floating">Usuario</ion-label>
+        <ion-input  class="custom-label" [(ngModel)]="usuario" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item class="fondo input ion-margin-top ion-margin-start ion-margin-end" lines="none">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input [(ngModel)]="password" type="password"></ion-input>
-    </ion-item>
+      <ion-item class="custom-label" class="fondo input ion-margin-top ion-margin-start ion-margin-end" lines="none">
+        <ion-label  class="custom-label" position="floating">Contraseña</ion-label>
+        <ion-input class="custom-label" [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
 
-    <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end"
-      (click)="iniciarSesion()">
-      Iniciar Sesión
-    </ion-button>
-
-    <ion-alert [isOpen]="isAlertOpen" header="Aviso" message="Credenciales incorrectas. Por favor, inténtalo de nuevo."
-      buttons="OK" (didDismiss)="setOpen(false)"></ion-alert>
-
-    <div>
       <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end"
-        (click)="recuperarClave()">
-        Cambiar contraseña
+        (click)="iniciarSesion()">
+        INICIA SESIÓN
       </ion-button>
-      <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end"
-        (click)="registrarse()">
-        Registrarse
-      </ion-button>
-    </div>
-  </ion-card>
-</ion-content>
+
+      <ion-alert [isOpen]="isAlertOpen" header="Aviso"
+        message="Credenciales incorrectas. Por favor, inténtalo de nuevo." buttons="OK"
+        (didDismiss)="setOpen(false)"></ion-alert>
+
+      <div>
+        <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end"
+          (click)="recuperarClave()">
+          CAMBIAR CONTRASEÑA
+        </ion-button>
+        <ion-button expand="block" class="degradado ion-margin-top ion-margin-start ion-margin-end"
+          (click)="registrarse()">
+          REGISTRARSE
+        </ion-button>
+      </div>
+    </ion-card>
+  </ion-content>
+</body>
