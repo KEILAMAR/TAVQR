@@ -29,7 +29,7 @@ export class LoginPage {
   }
 
   recuperarClave() {
-    this.router.navigate(['resset']);
+    this.router.navigate(['recPassword']);
   }
 
   registrarse() {

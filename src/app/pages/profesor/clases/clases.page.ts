@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clases',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClasesPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
+  async qr(){
+    this.router.navigate(['mostrarqr'])
+  }
+  
+  async lista(){
+    this.router.navigate(['listaprofesor'])
+  }
+
 
 }
