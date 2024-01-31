@@ -55,13 +55,17 @@ export class RegistroPage {
     if (domain.includes(emailDomain)) {
 
       this._authFirebase.register(this.usuario,this.password)?.then((resolve)=>{
+        this.showSuccessToast('¡Registro exitoso! El correo electrónico se ha registrado correctamente.');
         console.log('respuesta-desde-firebase: ',resolve);
       },(error)=>{
         console.log('error en el registro de usuario utilizando firebase: ',error);
-
-      })
-
-    }else{
+        if (error.code === 'auth/email-already-in-use') {
+        this.showAlert('Este correo electrónico ya está registrado. Por favor, inicia sesión.');
+        }else {
+          this.showAlert('Ocurrió un error durante el registro. Por favor, inténtalo de nuevo.');
+        }
+      });
+    } else {
       this.showAlert('Dominio de correo no válido');
     }
   }
