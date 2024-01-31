@@ -24,7 +24,7 @@ export class MostrarqrPage implements OnInit {
     
     return `${yyyy}-${mm}-${dd}`
   }
-
+/*
 //metodo para obtener las clases que tenga un profesor
   if (userData) {
     console.log(id_seccion);
@@ -49,5 +49,5 @@ export class MostrarqrPage implements OnInit {
            this.cd.detectChanges();
           }
       }
-  }
+  }*/
 }

@@ -15,7 +15,9 @@ export class RecPasswordPage implements OnInit {
 
   emailV!: string;
 
-  constructor(private authFire: AuthfirebaseService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private authFire: AuthfirebaseService, private router: Router, private formBuilder: FormBuilder,
+    
+    ) {
     this.userEmail = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
     })
@@ -24,19 +26,22 @@ export class RecPasswordPage implements OnInit {
   ngOnInit() {
   }
   onReset() {
-    try {
+  
       const email = this.userEmail!.value;
 
-      this.authFire.resetPass(email);
-      window.alert('Email enviado')
+      console.log('email-recibido:',email.email);
 
-      console.log('email mandao')
-      this.router.navigate(['/login'])
+      this.authFire.resetPass(email.email).then((resolve)=>{
 
-    } catch (error) {
-      console.log(error)
-    }
 
+        console.log('reset-password:',resolve);
+
+
+      },(error)=>{
+
+        console.log('error-reset-password:',error);
+      });
+     
   }
 
 }
