@@ -1,13 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>detailclass</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" defaultHref="/home-adm"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="materia" [routerLink]="['/materias/updateclass/', getId()]" fill="outline" color="secondary">
+        Edit
+        <ion-icon slot="end" name="create"></ion-icon>
+      </ion-button>
+      <ion-button (click)="eliminar()" fill="outline" color="danger" >
+        Delete
+        <ion-icon slot="end" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detailclass</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngIf="materia">
+    <ion-card-header>
+      <ion-card-title>{{ materia.clase }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <!--
+  <ion-button color="secondary" *ngIf="pizza" [routerLink]="['/pizzas/update', getId()]">Actualizar</ion-button>
+  <ion-button color="danger" (click)="eliminar()">Eliminar</ion-button>
+  -->
 </ion-content>

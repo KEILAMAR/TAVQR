@@ -13,22 +13,15 @@ export class HomeAdmPage implements OnInit {
   ngOnInit() {
   }
   async perfil(){
-    this.router.navigate(['perfila'])
+    this.router.navigate(['perfil-adm'])
   }
 
-  async clases(){
-    this.router.navigate(['clasesa'])
-  }
-
-  async horario(){
-    this.router.navigate(['horario'])
-  }
-
-  async qr(){
-    this.router.navigate(['leerqr'])
-  }
 
   async home(){
-    this.router.navigate(['homea'])
+    this.router.navigate(['home-adm'])
+  }
+
+  async addmat(){
+    this.router.navigate(['materias'])
   }
 }

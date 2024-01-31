@@ -11,16 +11,6 @@ ion-content {
     max-width: 200px;
 }
 
-::ng-deep ion-icon.icon-button {
-    background: var(--ion-color-primary-tint) !important;
-    color: white;
-    border-radius: 50% !important;
-}
-
-:host ::ng-deep .tabs-inner {
-    position: unset !important;
-    contain: size style !important;
-}
 
 .bottom-tab-bar {
     --background: transparent;
@@ -31,26 +21,12 @@ ion-tab-button {
     --background: beige;
 }
 
-.button-center {
-    --background: transparent !important;
-
     ion-icon {
         height: 50px;
         width: 50px;
         font-size: 75px;
     }
-}
 
-ion-tab-bar {
-    &:before {
-        box-shadow: 0 387px 0 300px beige;
-        position: absolute;
-        margin-top: -48px;
-        padding: 56px;
-        border-radius: 65%;
-        content: '';
-    }
-}
 
 .inner-left-btn {
     border-radius: 0 39% 0 0; // create the curved style on the left side of the center

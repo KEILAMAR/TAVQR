@@ -2,10 +2,11 @@
   <ion-toolbar color="warning">
 
     <ion-buttons slot="start">
-      <ion-back-button (click)="irAHomeA()"></ion-back-button>
+      <ion-back-button defaultHref="/homea"></ion-back-button>
     </ion-buttons>
 
     <ion-title>Horario</ion-title>
+
 
   </ion-toolbar>
 </ion-header>
@@ -31,28 +32,28 @@
     <ion-card-content>
       <ion-list>
         <ion-item class="item-programacion-bdd">
-          <ion-thumbnail slot="start" (click)="irALeerQR()">
+          <ion-thumbnail slot="start" (click)="leerqr()">
             <img alt="Silhouette of mountains" src="./assets/icon/PBDD.jpeg" />
           </ion-thumbnail>
           <ion-label class="programacion-bdd">Programación de base de datos</ion-label>
         </ion-item>
 
         <ion-item class="item-programacion-movil">
-          <ion-thumbnail slot="start" (click)="irALeerQR()">
+          <ion-thumbnail slot="start" (click)="leerqr()">
             <img alt="Silhouette of mountains" src="./assets/icon/PAM.jpeg" />
           </ion-thumbnail>
           <ion-label class="programacion-movil">Programación de aplicaciones móviles</ion-label>
         </ion-item>
 
         <ion-item class="item-arquitectura">
-          <ion-thumbnail slot="start" (click)="irALeerQR()">
+          <ion-thumbnail slot="start" (click)="leerqr()">
             <img alt="Silhouette of mountains" src="./assets/icon/ARQUITECTURA.png" />
           </ion-thumbnail>
           <ion-label class="arquitectura">Arquitectura</ion-label>
         </ion-item>
 
         <ion-item class="item-ingles" lines="none">
-          <ion-thumbnail slot="start" (click)="irALeerQR()">
+          <ion-thumbnail slot="start" (click)="leerqr()">
             <img alt="Silhouette of mountains" src="./assets/icon/INGLES.jpeg" />
           </ion-thumbnail>
           <ion-label class="ingles">Inglés</ion-label>

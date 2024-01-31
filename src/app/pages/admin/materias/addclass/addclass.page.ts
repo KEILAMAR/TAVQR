@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Imaterias } from 'src/app/interfaces/imaterias';
@@ -10,23 +11,26 @@ import { CrudfirebaseService } from 'src/app/services/Firebase/crudfirebase.serv
   styleUrls: ['./addclass.page.scss'],
 })
 export class AddclassPage implements OnInit {
-  materia: Imaterias={
-    clase:'software',
-    inicio:'11:35',
-    salida:'13:45',
-    profesor:'Fernando Espinoza',
-    sala:'nos08',
-    seccion:'0012g'
+
+
+  materia: Imaterias = {
+    clase: '',
+    inicio: '',
+    salida: '',
+    profesor: '',
+    sala: '',
+    seccion: ''
   }
 
-  constructor(private fireService:CrudfirebaseService,
-    private router:Router,
-    private toast:ToastController) { }
+  constructor(private fireService: CrudfirebaseService,
+    private router: Router,
+    private toast: ToastController,
+    private fb:FormBuilder) { }
 
   ngOnInit() {
   }
 
-  async mensajeToast(msj:string) {
+  async mensajeToast(msj: string) {
     const mensaje = await this.toast.create({
       message: msj,
       duration: 2000,
@@ -35,10 +39,14 @@ export class AddclassPage implements OnInit {
     mensaje.present();
   }
 
-  addmateria() {
-    this.fireService.createDocument('Materias', this.materia);
-    this.mensajeToast("materia agregada!");
-    this.router.navigate(['home-adm']);
+  addMateria() {
+    if (this.materia.clase && this.materia.inicio && this.materia.salida && this.materia.profesor && this.materia.sala && this.materia.seccion) {
+      this.fireService.createDocument('Materias', this.materia);
+      this.mensajeToast("Materia agregada!");
+      this.router.navigate(['materias']);
+    } else {
+      this.mensajeToast("Completa todos los campos correctamente");
+    }
   }
 
 }

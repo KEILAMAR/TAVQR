@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Imaterias } from 'src/app/interfaces/imaterias';
-import { Iusers } from 'src/app/interfaces/iusers';
 
 @Injectable({
   providedIn: 'root'
@@ -26,12 +25,9 @@ export class CrudfirebaseService {
     return this.fire.collection<Imaterias>(collectionName).doc(documentId).delete();
   }
 
-  getPizzaById(collectionName:string, documentId:string) {
+  getmatById(collectionName:string, documentId:string) {
     return this.fire.collection<Imaterias>(collectionName).doc(documentId).valueChanges();
   }
 
-  getTipoById(collectionName:string, documentId:string) {
-    return this.fire.collection<Iusers>(collectionName).doc(documentId).valueChanges();
-  }
 
 }

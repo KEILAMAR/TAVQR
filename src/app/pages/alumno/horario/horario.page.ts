@@ -13,7 +13,7 @@ export class HorarioPage implements OnInit {
   ngOnInit() {
 
   }
-  irALeerQR() {
+ leerqr() {
     this.router.navigate(['/leerqr']);
   }
 

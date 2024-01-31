@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-homep',
-  templateUrl: './homep.page.html',
-  styleUrls: ['./homep.page.scss'],
+  selector: 'app-homea',
+  templateUrl: './homea.page.html',
+  styleUrls: ['./homea.page.scss'],
 })
-export class HomepPage implements OnInit {
+export class HomeaPage implements OnInit {
 
 
   ngOnInit() {
@@ -16,7 +16,7 @@ export class HomepPage implements OnInit {
   constructor(private router: Router) { }
 
   async perfil(){
-    this.router.navigate(['perfilp'])
+    this.router.navigate(['perfila'])
   }
 
   async clases(){
@@ -28,7 +28,7 @@ export class HomepPage implements OnInit {
   }
 
   async qr(){
-    this.router.navigate(['mostrarqr'])
+    this.router.navigate(['leerqr'])
   }
 
   async home(){

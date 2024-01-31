@@ -84,23 +84,20 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/materias/addclass/addclass.module').then( m => m.AddclassPageModule)
   },
   {
-    path: 'detailclass',
-    loadChildren: () => import('./pages/admin/materias/detailclass/detailclass.module').then( m => m.DetailclassPageModule)
-  },
-  {
-    path: 'updateclass',
-    loadChildren: () => import('./pages/admin/materias/updateclass/updateclass.module').then( m => m.UpdateclassPageModule)
-  },
-  {
     path: 'perfil-adm',
     loadChildren: () => import('./pages/admin/perfil-adm/perfil-adm.module').then( m => m.PerfilAdmPageModule)
   },
   {
     path: 'home-adm',
     loadChildren: () => import('./pages/admin/home-adm/home-adm.module').then( m => m.HomeAdmPageModule)
-  },  {
+  },
+  {
     path: 'asistencia',
     loadChildren: () => import('./pages/profesor/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
+  },
+  {
+    path: 'materias',
+    loadChildren: () => import('./pages/admin/materias/materias.module').then( m => m.MateriasPageModule)
   },
 
 

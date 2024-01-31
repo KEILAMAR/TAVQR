@@ -1,36 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>addclass</ion-title>
+  <ion-toolbar color="warning">
+    <ion-title>Añadir Clase</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/materias"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
 
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Agregar Pizza</ion-card-title>
+      <ion-card-title class="centrado">Agregar Clase</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-input [(ngModel)]="materia.clase" type="text" label="Nombre" labelPlacement="floating" ></ion-input>
+        <ion-input [(ngModel)]="materia.clase" type="text" label="Nombre Clase" labelPlacement="floating"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="materia.inicio" type="text" label="Nombre" labelPlacement="floating" ></ion-input>        
+        <ion-input [(ngModel)]="materia.inicio" type="text" label="Inicio Clase" labelPlacement="floating"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="materia.salida" type="text" label="Nombre" labelPlacement="floating" ></ion-input>        
+        <ion-input [(ngModel)]="materia.salida" type="text" label="Termino Clase" labelPlacement="floating"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="materia.profesor" type="text" label="Nombre" labelPlacement="floating" ></ion-input>        
+        <ion-input [(ngModel)]="materia.profesor" type="text" label="Nombre Profesor"
+          labelPlacement="floating"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="materia.sala" type="text" label="Nombre" labelPlacement="floating" ></ion-input>       
+        <ion-input [(ngModel)]="materia.sala" type="text" label="Sala" labelPlacement="floating"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="materia.seccion" type="text" label="Nombre" labelPlacement="floating" ></ion-input>        
+        <ion-input [(ngModel)]="materia.seccion" type="text" label="Seccion" labelPlacement="floating"></ion-input>
       </ion-item>
 
-      <ion-button color="primary" (click)="addmateria()">Agregar</ion-button>
+      <ion-button class="centrado" color="primary" (click)="addMateria()">Agregar</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
