@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
+import { AuthfirebaseService } from 'src/app/services/Firebase/authfirebase.service';
 
 @Component({
   selector: 'app-registro',
@@ -14,7 +15,8 @@ export class RegistroPage {
   constructor(
     private router: Router,
     private alertController: AlertController,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private _authFirebase: AuthfirebaseService
   ) {}
 
   async showAlert(message: string) {
@@ -32,54 +34,39 @@ export class RegistroPage {
       message: message,
       duration: 2000,
       position: 'bottom',
-      color: 'success', // Puedes personalizar el color según tus necesidades
+      color: 'success', 
     });
 
     await toast.present();
   }
 
   registrar() {
-    // Validar que la contraseña tenga al menos 6 caracteres
     if (this.password.length < 6) {
       this.showAlert('La contraseña debe tener al menos 6 caracteres');
       return;
     }
-
-    // Realizar la verificación del dominio del correo electrónico
+    let domain= [
+    'profesor.duocuc.cl',
+      'admin.duoc.cl',
+      'duocuc.cl'
+    ]
     const emailDomain = this.usuario.split('@')[1];
 
-    switch (emailDomain) {
-      case 'profesor.duocuc.cl':
-        // Realizar acciones específicas para el dominio del profesor
-        break;
-      case 'admin.duoc.cl':
-        // Realizar acciones específicas para el dominio del administrador
-        break;
-      case 'duocuc.cl':
-        // Realizar acciones específicas para el dominio del alumno
-        break;
-      default:
-        // Mostrar alerta si el dominio no es válido
-        this.showAlert('Dominio de correo no válido');
-        return;
-    }
+    if (domain.includes(emailDomain)) {
 
-    // Almacena el correo electrónico y la contraseña en Firebase o en otro servicio
-    localStorage.setItem('usuario', this.usuario);
-    localStorage.setItem('password', this.password);
-
-    // Muestra un mensaje de éxito
-    this.showSuccessToast('Usuario registrado correctamente');
-
-    const navigationExtras: NavigationExtras = {
-      queryParams: {
-        usuario: this.usuario,
-      },
-    };
-
-    // Redirige al usuario a la página de inicio de sesión
-    if (navigationExtras) {
-      this.router.navigate(['login'], navigationExtras);
+      this._authFirebase.register(this.usuario,this.password)?.then((resolve)=>{
+        this.showSuccessToast('¡Registro exitoso! El correo electrónico se ha registrado correctamente.');
+        console.log('respuesta-desde-firebase: ',resolve);
+      },(error)=>{
+        console.log('error en el registro de usuario utilizando firebase: ',error);
+        if (error.code === 'auth/email-already-in-use') {
+        this.showAlert('Este correo electrónico ya está registrado. Por favor, inicia sesión.');
+        }else {
+          this.showAlert('Ocurrió un error durante el registro. Por favor, inténtalo de nuevo.');
+        }
+      });
+    } else {
+      this.showAlert('Dominio de correo no válido');
     }
   }
 }

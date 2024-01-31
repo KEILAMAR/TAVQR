@@ -12,8 +12,12 @@ export class AuthfirebaseService {
   private loading:any;
 
 
-  async login(email: string, password: string) {
-    try {
+   login(email: string, password: string) {
+
+
+    return this.auth.signInWithEmailAndPassword(email, password);
+   /* try {
+
       const userCredential = await this.auth.signInWithEmailAndPassword(email, password);
       console.log("sesion iniciada")
       this.loadingCtrl.create({
@@ -46,17 +50,15 @@ export class AuthfirebaseService {
         
   
       }, 800);
-    }
+    }*/
   }
 
 
-  async register(email: string, password: string) {
-    try {
-      const userCredential = await this.auth.createUserWithEmailAndPassword(email, password);
-      console.log("usuario creado")
-    } catch (error) {
-      console.error("error al crear usuario")
-    }
+ register(email: string, password: string) {
+  
+     return this.auth.createUserWithEmailAndPassword(email, password);
+
+   
   }
 
 
@@ -89,12 +91,10 @@ export class AuthfirebaseService {
 
 
   
-  async resetPass(email: string){
-    try {
+  resetPass(email: string){
+    
       return this.auth.sendPasswordResetEmail(email);
-    } catch (error) {
-      console.log(error)
-    }
+   
 
   }
 

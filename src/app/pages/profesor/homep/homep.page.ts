@@ -32,8 +32,8 @@ export class HomepPage implements OnInit {
   }
 
   async home(){
+    
     this.router.navigate(['homep'])
   }
-
 
 }
